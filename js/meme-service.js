@@ -204,9 +204,19 @@ function getLineIdx() {
 function updateFont(action) {
   if (action === 'increase') {
     gMeme.lines[gLineIdx].size += 2;
-  }
-  if (action === 'decrease') {
+  } else {
     gMeme.lines[gLineIdx].size -= 2;
+  }
+  saveToStorage(KEY, gMeme);
+}
+
+function updateAlignment(action) {
+  if (action === 'left') {
+    gMeme.lines[gLineIdx].align = 'left';
+  } else if (action === 'center') {
+    gMeme.lines[gLineIdx].align = 'center';
+  } else {
+    gMeme.lines[gLineIdx].align = 'right';
   }
   saveToStorage(KEY, gMeme);
 }

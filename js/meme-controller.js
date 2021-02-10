@@ -47,3 +47,11 @@ function onChangeFont(action) {
 //   var elInputsCont = document.querySelector('.inputs-container');
 
 // }
+
+function onChangeAlignment(action){
+    updateAlignment(action);
+    var key = getKey();
+    var lineIdx = getLineIdx();
+    var currMeme = loadFromStorage(key);
+    drawText(currMeme.lines[lineIdx].txt);
+}
