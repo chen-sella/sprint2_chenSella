@@ -59,7 +59,7 @@ var gKeywords = {
 var gImgs = [
   {
     id: 1,
-    url: '/meme-imgs (square)/1.jpg',
+    url: 'meme-imgs (square)/1.jpg',
     keywords: ['speech', 'president', 'suit', 'formal', 'trump'],
   },
   {
