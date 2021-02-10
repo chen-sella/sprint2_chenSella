@@ -64,62 +64,62 @@ var gImgs = [
   },
   {
     id: 2,
-    url: '/meme-imgs (square)/2.jpg',
+    url: 'meme-imgs (square)/2.jpg',
     keywords: ['happy', 'love', 'puppy', 'kiss'],
   },
   {
     id: 3,
-    url: '/meme-imgs (square)/3.jpg',
+    url: 'meme-imgs (square)/3.jpg',
     keywords: ['nap', 'sleep', 'bed', 'puppy', 'baby', 'tired', 'together'],
   },
   {
     id: 4,
-    url: '/meme-imgs (square)/4.jpg',
+    url: 'meme-imgs (square)/4.jpg',
     keywords: ['tired', 'cat', 'keyboard', 'nap', 'bored'],
   },
   {
     id: 5,
-    url: '/meme-imgs (square)/5.jpg',
+    url: 'meme-imgs (square)/5.jpg',
     keywords: ['baby', 'victory', 'success', 'sea', 'sand'],
   },
   {
     id: 6,
-    url: '/meme-imgs (square)/6.jpg',
+    url: 'meme-imgs (square)/6.jpg',
     keywords: ['crazy', 'explain', 'listen', 'suit', 'formal'],
   },
   {
     id: 7,
-    url: '/meme-imgs (square)/7.jpg',
+    url: 'meme-imgs (square)/7.jpg',
     keywords: ['happy', 'baby', 'surprised', 'curious', 'listen'],
   },
   {
     id: 8,
-    url: '/meme-imgs (square)/8.jpg',
+    url: 'meme-imgs (square)/8.jpg',
     keywords: ['happy', 'hat', 'crazy', 'fascinated'],
   },
   {
     id: 9,
-    url: '/meme-imgs (square)/9.jpg',
+    url: 'meme-imgs (square)/9.jpg',
     keywords: ['baby', 'laughter', 'evil', 'conspiracy'],
   },
   {
     id: 10,
-    url: '/meme-imgs (square)/10.jpg',
+    url: 'meme-imgs (square)/10.jpg',
     keywords: ['happy', 'laughter', 'president', 'obama'],
   },
   {
     id: 11,
-    url: '/meme-imgs (square)/11.jpg',
+    url: 'meme-imgs (square)/11.jpg',
     keywords: ['fight', 'rival', 'suffocating'],
   },
   {
     id: 12,
-    url: '/meme-imgs (square)/12.jpg',
+    url: 'meme-imgs (square)/12.jpg',
     keywords: ['righteous', 'glasses', 'hand', 'you'],
   },
   {
     id: 13,
-    url: '/meme-imgs (square)/13.jpg',
+    url: 'meme-imgs (square)/13.jpg',
     keywords: [
       'happy',
       'cheers',
@@ -131,27 +131,27 @@ var gImgs = [
   },
   {
     id: 14,
-    url: '/meme-imgs (square)/14.jpg',
+    url: 'meme-imgs (square)/14.jpg',
     keywords: ['fight', 'tense', 'glasses', 'gun'],
   },
   {
     id: 15,
-    url: '/meme-imgs (square)/15.jpg',
+    url: 'meme-imgs (square)/15.jpg',
     keywords: ['exactly', 'hand', 'explain'],
   },
   {
     id: 16,
-    url: '/meme-imgs (square)/16.jpg',
+    url: 'meme-imgs (square)/16.jpg',
     keywords: ['laughter', 'surprised', 'hand'],
   },
   {
     id: 17,
-    url: '/meme-imgs (square)/17.jpg',
+    url: 'meme-imgs (square)/17.jpg',
     keywords: ['president', 'suit', 'formal', 'speech', 'hand', 'two'],
   },
   {
     id: 18,
-    url: '/meme-imgs (square)/18.jpg',
+    url: 'meme-imgs (square)/18.jpg',
     keywords: ['scared', 'toystory', 'friends', 'together', 'help'],
   },
 ];
