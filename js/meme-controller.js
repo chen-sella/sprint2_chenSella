@@ -1,8 +1,14 @@
 'use strict';
-
+var gKey;
+var gElCanvas;
+var gCtx;
+var gStorageMeme;
+var gCurrLineIdx;
 
 function init() {
-  console.log('Hello');
+  gElCanvas = document.getElementById('meme-canvas');
+  gCtx = gElCanvas.getContext('2d');
+  gKey = getKey();
   renderGallary();
 }
 
@@ -11,7 +17,7 @@ function renderGallary() {
   var strHTML = imgs
     .map((img) => {
       return `<div class"grid-item">
-                    <img src="${img.url}" class="grid-img" onclick="renderMemeGen(this, ${img.id})">
+                    <img src="${img.url}" class="grid-img" onclick="renderMeme(${img.id})">
                 </div>`;
     })
     .join('');
@@ -19,7 +25,7 @@ function renderGallary() {
   elGrid.innerHTML = strHTML;
 }
 
-function renderMemeGen(img, imgId) {
+function renderMeme(imgId) {
   createMeme(imgId);
   var elGrid = document.querySelector('.grid-container');
   elGrid.innerHTML = '';
@@ -27,33 +33,48 @@ function renderMemeGen(img, imgId) {
   elAbout.style.visibility = 'hidden';
   var elBody = document.querySelector('body');
   elBody.classList.add('editor-show');
+  updateGlobals();
   renderImg();
 }
 
-function onTyping(text, id) {
+function renderImg() {
+  var memeImg = new Image();
+  memeImg.src = gStorageMeme.selectedImgUrl;
+  gCtx.drawImage(memeImg, 0, 0, gElCanvas.width, gElCanvas.height);
+}
+
+function onTyping(text) {
   updateMemeText(text);
-  var key = getKey();
-  insertText(key);
+  updateGlobals();
+  var text = gStorageMeme.lines[gCurrLineIdx].txt;
+  drawText(text);
+}
+
+function drawText(text, x = gElCanvas.width / 2, y = 40) {
+  gCtx.lineWidth = 2;
+  gCtx.strokeStyle = `${gStorageMeme.lines[gCurrLineIdx].color}`;
+  gCtx.fillStyle = 'white';
+  gCtx.font = `${gStorageMeme.lines[gCurrLineIdx].size}px Impact`;
+  gCtx.textAlign = `${gStorageMeme.lines[gCurrLineIdx].align}`;
+  gCtx.clearRect(0, 40, gElCanvas.width, 60);
+  renderImg();
+  gCtx.fillText(text, x, y);
+  gCtx.strokeText(text, x, y);
 }
 
 function onChangeFont(action) {
   updateFont(action);
-  var key = getKey();
-  var lineIdx = getLineIdx();
-  var currMeme = loadFromStorage(key);
-  drawText(currMeme.lines[lineIdx].txt);
+  updateGlobals();
+  drawText(gStorageMeme.lines[gCurrLineIdx].txt);
 }
 
-// function onAddRow() {
-//   var strHTML =   `<input id="input-${gLineIdx}" class="text-input" type="text" oninput="onTyping(this.value, this.id)">`
-//   var elInputsCont = document.querySelector('.inputs-container');
+function onChangeAlignment(action) {
+  updateAlignment(action);
+  updateGlobals();
+  drawText(gStorageMeme.lines[gCurrLineIdx].txt);
+}
 
-// }
-
-function onChangeAlignment(action){
-    updateAlignment(action);
-    var key = getKey();
-    var lineIdx = getLineIdx();
-    var currMeme = loadFromStorage(key);
-    drawText(currMeme.lines[lineIdx].txt);
+function updateGlobals(){
+    gStorageMeme = loadFromStorage(gKey);
+    gCurrLineIdx = gStorageMeme.selectedLineIdx;
 }
