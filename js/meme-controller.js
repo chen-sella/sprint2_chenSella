@@ -23,6 +23,8 @@ function renderMemeGen(img, imgId) {
   createMeme(imgId);
   var elGrid = document.querySelector('.grid-container');
   elGrid.innerHTML = '';
+  var elAbout = document.querySelector('.about-container');
+  elAbout.style.visibility = 'hidden';
   var elBody = document.querySelector('body');
   elBody.classList.add('editor-show');
   renderImg();
