@@ -9,12 +9,24 @@
   font-family: 'Signika-Light';
 }
 
+
+@font-face {
+    src: url('fonts/Signika/Signika-SemiBold.ttf');
+    font-family: 'Signika-Bold';
+  }
+
+@font-face {
+    src: url('fonts/Roboto/Roboto-Black.ttf');
+    font-family: 'Roboto-Black';
+  }
+  
+
 /* Layout */
 
 .grid-container {
   display: grid;
   gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 /* Components */
@@ -24,7 +36,8 @@ html {
 }
 
 body {
-  background-color: rgb(218, 218, 218);
+  background-color: #f7f6e7;
+  margin: 0;
 }
 
 .grid-img {
@@ -39,13 +52,20 @@ body.gallary-hide .image-gallary {
 }
 
 .nav-container {
-  height: 100px;
-  background-color: rgb(115, 158, 194);
+  height: 80px;
+  background-color: #314e52;
   margin-block-end: 10px;
+}
+
+.logo{
+    font-family: 'Roboto-Black';
+    font-size: 1.75rem;
+    letter-spacing: 1px;
 }
 
 .nav-list a {
   padding-inline-end: 10px;
+  font-size: 1.25rem;
 }
 
 .meme-editor-panel {
@@ -91,6 +111,34 @@ body.editor-show .meme-editor-panel {
   cursor: pointer;
   margin-inline-end: 6px;
   margin-block-end: 6px;
+}
+
+.main-footer{
+    height: 200px;
+    background-color: #314e52;
+    flex-direction: column;
+}
+
+.about{
+    height: 400px;
+    width: 80%;
+    margin-inline-start: 15%;
+}
+
+.about-img{
+    border-radius: 50%;
+    width: 300px;
+    margin: 10px;
+}
+
+.about-text-container{
+    flex-direction: column;
+    margin-inline-start: 10px;
+}
+
+.about-name{
+    font-size: 1.375rem;
+    font-family: 'Signika-Bold';
 }
 
 /* HELPERS */
