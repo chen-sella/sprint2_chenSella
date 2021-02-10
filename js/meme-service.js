@@ -1,0 +1,212 @@
+'use strict';
+const KEY = 'meme';
+
+var gKeywords = {
+  happy: 5,
+  president: 3,
+  suit: 3,
+  formal: 3,
+  trump: 1,
+  love: 1,
+  puppy: 2,
+  kiss: 1,
+  nap: 2,
+  sleep: 1,
+  bed: 1,
+  baby: 4,
+  tired: 2,
+  together: 2,
+  cat: 1,
+  keyboard: 1,
+  bored: 1,
+  victory: 1,
+  success: 1,
+  sea: 1,
+  sand: 1,
+  crazy: 2,
+  explain: 2,
+  listen: 2,
+  surprised: 2,
+  curious: 1,
+  hat: 1,
+  fascinated: 1,
+  laughter: 3,
+  evil: 1,
+  conspiracy: 1,
+  obama: 1,
+  fight: 2,
+  rival: 1,
+  suffocating: 1,
+  righteous: 1,
+  glasses: 2,
+  hand: 4,
+  you: 1,
+  cheers: 1,
+  celebrate: 1,
+  toast: 1,
+  star: 1,
+  congradulations: 1,
+  tense: 1,
+  gun: 1,
+  exactly: 1,
+  two: 1,
+  scared: 1,
+  toystory: 1,
+  friends: 1,
+  help: 1,
+};
+
+var gImgs = [
+  {
+    id: 1,
+    url: '/meme-imgs (square)/1.jpg',
+    keywords: ['speech', 'president', 'suit', 'formal', 'trump'],
+  },
+  {
+    id: 2,
+    url: '/meme-imgs (square)/2.jpg',
+    keywords: ['happy', 'love', 'puppy', 'kiss'],
+  },
+  {
+    id: 3,
+    url: '/meme-imgs (square)/3.jpg',
+    keywords: ['nap', 'sleep', 'bed', 'puppy', 'baby', 'tired', 'together'],
+  },
+  {
+    id: 4,
+    url: '/meme-imgs (square)/4.jpg',
+    keywords: ['tired', 'cat', 'keyboard', 'nap', 'bored'],
+  },
+  {
+    id: 5,
+    url: '/meme-imgs (square)/5.jpg',
+    keywords: ['baby', 'victory', 'success', 'sea', 'sand'],
+  },
+  {
+    id: 6,
+    url: '/meme-imgs (square)/6.jpg',
+    keywords: ['crazy', 'explain', 'listen', 'suit', 'formal'],
+  },
+  {
+    id: 7,
+    url: '/meme-imgs (square)/7.jpg',
+    keywords: ['happy', 'baby', 'surprised', 'curious', 'listen'],
+  },
+  {
+    id: 8,
+    url: '/meme-imgs (square)/8.jpg',
+    keywords: ['happy', 'hat', 'crazy', 'fascinated'],
+  },
+  {
+    id: 9,
+    url: '/meme-imgs (square)/9.jpg',
+    keywords: ['baby', 'laughter', 'evil', 'conspiracy'],
+  },
+  {
+    id: 10,
+    url: '/meme-imgs (square)/10.jpg',
+    keywords: ['happy', 'laughter', 'president', 'obama'],
+  },
+  {
+    id: 11,
+    url: '/meme-imgs (square)/11.jpg',
+    keywords: ['fight', 'rival', 'suffocating'],
+  },
+  {
+    id: 12,
+    url: '/meme-imgs (square)/12.jpg',
+    keywords: ['righteous', 'glasses', 'hand', 'you'],
+  },
+  {
+    id: 13,
+    url: '/meme-imgs (square)/13.jpg',
+    keywords: [
+      'happy',
+      'cheers',
+      'celebrate',
+      'toast',
+      'star',
+      'congradulations',
+    ],
+  },
+  {
+    id: 14,
+    url: '/meme-imgs (square)/14.jpg',
+    keywords: ['fight', 'tense', 'glasses', 'gun'],
+  },
+  {
+    id: 15,
+    url: '/meme-imgs (square)/15.jpg',
+    keywords: ['exactly', 'hand', 'explain'],
+  },
+  {
+    id: 16,
+    url: '/meme-imgs (square)/16.jpg',
+    keywords: ['laughter', 'surprised', 'hand'],
+  },
+  {
+    id: 17,
+    url: '/meme-imgs (square)/17.jpg',
+    keywords: ['president', 'suit', 'formal', 'speech', 'hand', 'two'],
+  },
+  {
+    id: 18,
+    url: '/meme-imgs (square)/18.jpg',
+    keywords: ['scared', 'toystory', 'friends', 'together', 'help'],
+  },
+];
+
+var gMeme;
+var gLineIdx = 0;
+
+function getImgs() {
+  return gImgs;
+}
+
+function createMeme(imgId) {
+  var img = findImg(imgId);
+
+  gMeme = {
+    selectedImgId: imgId,
+    selectedImgUrl: img.url,
+    selectedLineIdx: 0,
+    lines: [
+      {
+        txt: '',
+        size: 40,
+        align: 'center',
+        color: 'black',
+      },
+    ],
+  };
+  saveToStorage(KEY, gMeme);
+}
+
+function findImg(imgId) {
+  return gImgs.find((img) => {
+    return img.id === imgId;
+  });
+}
+
+function updateMemeText(text) {
+  gMeme.lines[gLineIdx].txt = text;
+  saveToStorage(KEY, gMeme);
+}
+
+function getKey() {
+  return KEY;
+}
+
+function getLineIdx() {
+  return gLineIdx;
+}
+
+function updateFont(action) {
+  if (action === 'increase') {
+    gMeme.lines[gLineIdx].size += 2;
+  }
+  if (action === 'decrease') {
+    gMeme.lines[gLineIdx].size -= 2;
+  }
+  saveToStorage(KEY, gMeme);
+}

@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Fonts */
+
+@font-face {
+  src: url('/fonts/Signika/Signika-Light.ttf');
+  font-family: 'Signika-Light';
+}
+
+/* Layout */
+
+.grid-container {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+/* Components */
+
+html {
+  font-family: 'Signika-Light';
+}
+
+body {
+  background-color: rgb(218, 218, 218);
+}
+
+.grid-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.gallary-hide .image-gallary {
+  visibility: hidden;
+}
+
+.nav-container {
+  height: 100px;
+  background-color: rgb(115, 158, 194);
+  margin-block-end: 10px;
+}
+
+.nav-list a {
+  padding-inline-end: 10px;
+}
+
+.meme-editor-panel {
+  visibility: hidden;
+  align-items: flex-start;
+}
+
+body.editor-show .meme-editor-panel {
+  visibility: visible;
+}
+
+.control-panel {
+  flex-direction: column;
+  flex-basis: 50%;
+  align-items: center;
+  padding: 10px;
+}
+
+.control-panel .text-input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-block-end: 10px;
+  font-family: 'Signika-Light';
+  width: 80%;
+}
+
+.canvas-container {
+  margin: 10px;
+}
+
+.editor-btns {
+  width: 50%;
+  flex-wrap: wrap;
+}
+
+.editor-btn-img {
+  width: 38px;
+  height: 35px;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: white;
+  cursor: pointer;
+  margin-inline-end: 6px;
+  margin-block-end: 6px;
+}
+
+/* HELPERS */
+
+/* ***fles-helpers*** */
+
+.flex {
+  display: flex;
+}
+
+.flex.align-center {
+  align-items: center;
+}
+
+.flex.space-between {
+  justify-content: space-between;
+}
+
+.flex.justify-center {
+  justify-content: center;
+}
+
+/* ***list-helpers*** */
+
+.clean-list {
+  list-style-type: none;
+}
