@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/ac169b3c0f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Meme-Generator</title>
 </head>
@@ -41,13 +42,19 @@
             <div class="control-panel flex">
                 <input id="input-0" class="text-input" type="text" oninput="onTyping(this.value)">
                 <div class="editor-btns flex align-center">
-                    <div class="btns-first-line flex justify-center align-center">
-                        <img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"
-                            class="editor-btn-img"></button>
-                        <img src="ICONS/add.png" class="editor-btn-img" onclick="onAddTextLine()">
-                        <img src="ICONS/trash.png" class="editor-btn-img" onclick="onClearCanvas()">
+                    <div class="btns-first-line control-line-container  flex justify-center align-center">
+                        <img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="editor-btn-img"
+                            onclick="onChangeFocus()">
+                        <button class="editor-btn-img" onclick="onAddTextLine()"><i
+                                class="fas fa-plus fa-2x"></i></button>
+                        <button class="editor-btn-img" onclick="onClearLine()"><i
+                                class="fas fa-trash fa-2x"></i></button>
                     </div>
-                    <div class="btns-second-line flex">
+                    <div class="btns-second-line control-line-container flex">
+                        <button class="editor-btn-img" onclick="onLineUp()"><i
+                                class="fas fa-arrow-up fa-2x"></i></button>
+                        <button class="editor-btn-img" onclick="onLineDown()"><i
+                                class="fas fa-arrow-down fa-2x"></i></button>
                         <img name="increase" src="ICONS/increase font - icon.png" class="editor-btn-img"
                             onclick="onChangeFont(this.name)"></button>
                         <img name="decrease" src="ICONS/decrease font - icon.png" class="editor-btn-img"
@@ -61,7 +68,7 @@
                         <img src="ICONS/text stroke.png" class="editor-btn-img">
                         <img src="ICONS/paint-board-and-brush.png" class="editor-btn-img">
                     </div>
-                    <div class="btns-third-line flex">
+                    <div class="btns-third-line control-line-container  flex">
                         <a class="meme-actions" href="#" onclick="onDownloadCanvas(this)">Download</a>
                         <a class="meme-actions" href="#" onclick="onSaveMeme(this)">Save</a>
                     </div>
