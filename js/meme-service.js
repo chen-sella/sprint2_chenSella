@@ -156,6 +156,7 @@ var gImgs = [
   },
 ];
 
+var gId = 19;
 var gMeme;
 var gMemes = [];
 var gLineIdx = 0;
@@ -309,4 +310,14 @@ function filterImgs(text) {
         }
     })
     return filtered
+}
+
+function createImgFromUpload(img){
+    var img = {
+        id: gId,
+        url: img.src,
+        keywords: ['preety', 'nice']
+    }
+    gId ++
+    gImgs.push(img);
 }

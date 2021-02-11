@@ -6,15 +6,16 @@ var gStorageMeme;
 var gCurrLineIdx;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gElBody;
-var gCurrImg;
+var gCurrImgs;
+var gImg;
 
 function init() {
   gElCanvas = document.getElementById('meme-canvas');
   gCtx = gElCanvas.getContext('2d');
   gKey = getKey();
   gElBody = document.querySelector('body');
-  gCurrImg = getImgs();
-  renderGallary(gCurrImg);
+  gCurrImgs = getImgs();
+  renderGallary(gCurrImgs);
   window.addEventListener('resize', () => {
     resizeCanvas();
     renderImg();
@@ -143,54 +144,33 @@ function resizeCanvas() {
   gElCanvas.height = elContainer.offsetHeight;
 }
 
-function onFilter(text){
-    var filtered =filterImgs(text);
-    console.log(filtered);
-    renderGallary(filtered);
+function onFilter(text) {
+  var filtered = filterImgs(text);
+  console.log(filtered);
+  renderGallary(filtered);
 }
 
-function toggleMenu(){
-    document.body.classList.toggle('menu-open');
+function toggleMenu() {
+  document.body.classList.toggle('menu-open');
 }
 
-// function canvasClicked(ev) {
-//   const { offsetX, offsetY } = ev;
-//   console.log(offsetX);
-//   console.log(offsetY);
-//   var clickedLine = gStorageMeme.lines.find((line) => {
-//       var lineLeng = gCtx.measureText(line.txt);
-//       console.log(line.x);
-//     return (
-//       offsetX > line.x-lineLeng &&
-//       offsetX < line.x + lineLeng &&
-//       offsetY > line.y &&
-//       offsetY < gCanvas.height
-//     );
-//   });
-//   console.log(clickedLine);
-// //   if (clickedStar)
-// //     openModal(clickedStar.name, clickedStar.rate, ev.clientX, ev.clientY);
-// //   else closeModal();
-// }
+function onImgInput(ev) {
+  loadImageFromInput(ev, createImgFromUpload);
+  setTimeout(() => {
+    gCurrImgs = getImgs();
+    renderGallary(gImgs);
+  }, 1000);
+}
 
-// function addMouseListeners() {
-//   gElCanvas.addEventListener('mousemove', onMove);
-//   gElCanvas.addEventListener('mousedown', onDown);
-//   gElCanvas.addEventListener('mouseup', onUp);
-// }
+function loadImageFromInput(ev, onImageReady) {
+  var reader = new FileReader();
 
-// function getEvPos(ev) {
-//   var pos = {
-//     x: ev.offsetX,
-//     y: ev.offsetY,
-//   };
-//   if (gTouchEvs.includes(ev.type)) {
-//     ev.preventDefault();
-//     ev = ev.changedTouches[0];
-//     pos = {
-//       x: ev.pageX - ev.target.offsetLeft - ev.target.clientLeft,
-//       y: ev.pageY - ev.target.offsetTop - ev.target.clientTop,
-//     };
-//   }
-//   return pos;
-// }
+  reader.onload = function (event) {
+    var img = new Image();
+    img.onload = onImageReady.bind(null, img);
+    img.src = event.target.result;
+    gImg = img;
+  };
+  reader.readAsDataURL(ev.target.files[0]);
+}
+

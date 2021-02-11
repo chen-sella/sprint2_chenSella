@@ -32,6 +32,7 @@
     <section class="search-bar">
         <input type="text" placeholder="Search.." onkeyup="onFilter(this.value)">
         <i class="fas fa-search"></i>
+        <input type="file" name="image" onchange="onImgInput(event)">
     </section>
     <main>
         <section class="image-gallary">
@@ -84,10 +85,31 @@
         <img class="about-img" src="me.jpg">
         <div class="about-text-container flex ">
             <p class="about-name">Chen Sella</p>
-            <p class="about-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci repellat officia
-                consequatur aliquid. Temporibus veritatis placeat dolor, ab nesciunt repudiandae quae blanditiis
-                cupiditate, minima nemo magni mollitia quod unde fuga?</p>
+            <p class="about-details">My name is Chen, I'm 28 Years Old and i live in Tel Aviv, Israel. I'm a graduate of
+                the Faculty
+                of Mechanical Engineering from Tel Aviv University. Passionate about Web design, love taking on new
+                challenges and
+                exploring different fields. I live from one adventure to another, love to travel and playing the piano.
+            </p>
         </div>
+    </section>
+    <section class="socials">
+        <ul class="social-buttons clean-list flex justify-center">
+            <li class="social-item">
+                <a href="https://www.instagram.com/chen.sella/?hl=en" target="_blank">
+                    <i class="fab fa-instagram-square fa-2x"></i>                </a>
+            </li>
+            <li class="social-item">
+                <a href="https://www.facebook.com/chen.sella/" target="_blank">
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                </a>
+            </li>
+            <li class="social-item">
+                <a href="https://www.linkedin.com/in/chen-sella-855b28168/" target="_blank">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </li>
+        </ul>
     </section>
     <section class="saved-memes">
 

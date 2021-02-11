@@ -104,6 +104,15 @@ a {
   border-bottom: 1px solid #757575;
 }
 
+.upload{
+    font-size: 14px;
+}
+
+.search-bar input[name="image"]{
+    font-size: 16px;
+    border: none;
+}
+
 .fa-search {
   color: #757575;
 }
@@ -140,6 +149,10 @@ body.meme-editor .about-container {
 body.meme-editor .search-bar {
   display: none;
 }
+
+body.meme-editor .social-buttons {
+    display: none;
+  }
 
 .control-panel {
   flex-direction: column;
@@ -243,6 +256,32 @@ body.meme-editor .search-bar {
   display: none;
 }
 
+.social-buttons {
+  margin: 0;
+  padding-block-start: 10px;
+  background-color: white;
+}
+.social-item {
+  width: 38px;
+  height: 35px;
+  border-radius: 5px;
+  padding: 3px;
+  background-color: white;
+  cursor: pointer;
+  margin-inline-end: 6px;
+  margin-block-end: 6px;
+}
+
+.fa-instagram-square:hover{
+    color: #CA4382;
+}
+.fa-facebook-square:hover{
+    color: #4867AB;
+}
+.fa-linkedin:hover{
+    color: #2477B5;
+}
+
 /* footer */
 
 .main-footer {
@@ -276,13 +315,13 @@ body.meme-editor .search-bar {
     padding: 5px 8px;
   }
 
-  .nav-list a  {
+  .nav-list a {
     display: block;
     width: 100%;
     height: 110px;
     margin-block-start: 25px;
     margin-inline-start: 10px;
-  } 
+  }
 
   .nav-list {
     position: fixed;
