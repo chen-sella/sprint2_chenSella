@@ -330,7 +330,7 @@ body.meme-editor .search-bar {
 }
 @media screen and (max-width: 400px) {
   .canvas-container {
-    width: 40vw;
+    width: 60vw;
     height: 20vh;
   }
 }
