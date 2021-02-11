@@ -192,7 +192,7 @@ function createNewLine(canvas) {
   if (gMeme.lines.length === 1) {
     var y = canvas.height - 20;
   } else {
-    var y = (canvas.height / 2);
+    var y = canvas.height / 2;
   }
 
   var line = {
@@ -296,4 +296,17 @@ function changeFocus() {
     gMeme.selectedLineIdx++;
     saveToStorage(KEY, gMeme);
   }
+}
+
+function filterImgs(text) {
+    var filtered =[];
+    gImgs.forEach((img)=>{
+       var isContain = img.keywords.some((word)=>{
+            return word.startsWith(text)
+        })
+        if (isContain){
+            filtered.push(img)
+        }
+    })
+    return filtered
 }

@@ -6,21 +6,22 @@ var gStorageMeme;
 var gCurrLineIdx;
 const gTouchEvs = ['touchstart', 'touchmove', 'touchend'];
 var gElBody;
+var gCurrImg;
 
 function init() {
   gElCanvas = document.getElementById('meme-canvas');
   gCtx = gElCanvas.getContext('2d');
   gKey = getKey();
   gElBody = document.querySelector('body');
-  renderGallary();
+  gCurrImg = getImgs();
+  renderGallary(gCurrImg);
   window.addEventListener('resize', () => {
     resizeCanvas();
     // renderImg();
   });
 }
 
-function renderGallary() {
-  var imgs = getImgs();
+function renderGallary(imgs) {
   var strHTML = imgs
     .map((img) => {
       return `<div class"grid-item">
@@ -34,8 +35,6 @@ function renderGallary() {
 
 function renderMeme(imgId) {
   createMeme(imgId, gElCanvas);
-  var elGrid = document.querySelector('.grid-container');
-  elGrid.innerHTML = '';
   gElBody.classList.remove('gallary');
   gElBody.classList.add('meme-editor');
   updateGlobals();
@@ -141,8 +140,13 @@ function onChangeFocus() {
 function resizeCanvas() {
   const elContainer = document.querySelector('.canvas-container');
   gElCanvas.width = elContainer.offsetWidth;
-//   gElCanvas.height = elContainer.cilentHeight;
   gElCanvas.height = elContainer.offsetHeight;
+}
+
+function onFilter(text){
+    var filtered =filterImgs(text);
+    console.log(filtered);
+    renderGallary(filtered);
 }
 
 // function canvasClicked(ev) {
