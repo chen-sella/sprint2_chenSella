@@ -11,6 +11,7 @@
 </head>
 
 <body class="gallary" onload="init()">
+    <div class="main-screen" onclick="toggleMenu()"></div>
     <header class="nav-container flex align-center space-between">
         <div class="logo">MemeGen<span>.</span></div>
         <nav class="nav-content">
@@ -18,16 +19,15 @@
                 <li>
                     <a>Gallary</a>
                 </li>
-                |
                 <li>
                     <a>Memes</a>
                 </li>
-                |
                 <li>
                     <a href="#about">About</a>
                 </li>
             </ul>
         </nav>
+        <button class="menu-btn" onclick="toggleMenu()"><i class="fas fa-bars "></i></button>
     </header>
     <section class="search-bar">
         <input type="text" placeholder="Search.." onkeyup="onFilter(this.value)">

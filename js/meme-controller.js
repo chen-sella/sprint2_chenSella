@@ -17,7 +17,7 @@ function init() {
   renderGallary(gCurrImg);
   window.addEventListener('resize', () => {
     resizeCanvas();
-    // renderImg();
+    renderImg();
   });
 }
 
@@ -147,6 +147,10 @@ function onFilter(text){
     var filtered =filterImgs(text);
     console.log(filtered);
     renderGallary(filtered);
+}
+
+function toggleMenu(){
+    document.body.classList.toggle('menu-open');
 }
 
 // function canvasClicked(ev) {
