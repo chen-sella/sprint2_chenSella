@@ -27,6 +27,7 @@
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  margin: 15px;
 }
 
 /* Components */
@@ -40,6 +41,10 @@ body {
   margin: 0;
 }
 
+.image-gallary{
+    visibility: hidden;
+}
+
 .grid-img {
   width: 100%;
   height: 100%;
@@ -47,14 +52,16 @@ body {
   cursor: pointer;
 }
 
-body.gallary-hide .image-gallary {
-  visibility: hidden;
+body.gallary .image-gallary {
+  visibility: visible;
 }
+
 
 .nav-container {
   height: 80px;
   background-color: #314e52;
-  margin-block-end: 10px;
+  padding-inline-start: 15px;
+  padding-inline-end: 15px;
 }
 
 .logo{
@@ -73,11 +80,17 @@ body.gallary-hide .image-gallary {
 .meme-editor-panel {
   visibility: hidden;
   align-items: flex-start;
+  margin: 0 10%;
 }
 
-body.editor-show .meme-editor-panel {
-  visibility: visible;
+
+body.meme-editor .meme-editor-panel{
+    visibility: visible;
 }
+body.meme-editor .about-container{
+    visibility: hidden;
+}
+
 
 .control-panel {
   flex-direction: column;
@@ -92,7 +105,7 @@ body.editor-show .meme-editor-panel {
   border: none;
   margin-block-end: 10px;
   font-family: 'Signika-Light';
-  width: 80%;
+  width: 100%;
 }
 
 .canvas-container {
@@ -101,7 +114,39 @@ body.editor-show .meme-editor-panel {
 
 .editor-btns {
   width: 50%;
-  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.btns-first-line{
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color:#e7e6e1;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.btns-second-line{
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #e7e6e1;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.btns-third-line{
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: #e7e6e1;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
 }
 
 .editor-btn-img {
@@ -113,6 +158,15 @@ body.editor-show .meme-editor-panel {
   cursor: pointer;
   margin-inline-end: 6px;
   margin-block-end: 6px;
+}
+
+.meme-actions{
+    text-decoration: none;
+    color: black;
+    border-radius: 5px;
+    background-color: white;
+    padding: 10px;
+    margin: 5px;
 }
 
 .main-footer{

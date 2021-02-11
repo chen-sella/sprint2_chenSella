@@ -6,22 +6,22 @@
 //     gElCanvas.height = elContainer.offsetHeight
 // }
 
-// function onImgInput(ev) {
-//     loadImageFromInput(ev, renderImg)
-// }
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderImg)
+}
 
-// function loadImageFromInput(ev, onImageReady) {
-//     document.querySelector('.share-container').innerHTML = ''
-//     var reader = new FileReader()
+function loadImageFromInput(ev, onImageReady) {
+    document.querySelector('.share-container').innerHTML = ''
+    var reader = new FileReader()
 
-//     reader.onload = function (event) {
-//         var img = new Image()
-//         img.onload = onImageReady.bind(null, img)
-//         img.src = event.target.result
-//         gImg = img
-//     }
-//     reader.readAsDataURL(ev.target.files[0])
-// }
+    reader.onload = function (event) {
+        var img = new Image()
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result
+        gImg = img
+    }
+    reader.readAsDataURL(ev.target.files[0])
+}
 
 // // on submit call to this function
 // function uploadImg(elForm, ev) {
