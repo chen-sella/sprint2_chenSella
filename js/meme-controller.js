@@ -13,6 +13,10 @@ function init() {
   gKey = getKey();
   gElBody = document.querySelector('body');
   renderGallary();
+  window.addEventListener('resize', () => {
+    resizeCanvas();
+    // renderImg();
+  });
 }
 
 function renderGallary() {
@@ -20,7 +24,7 @@ function renderGallary() {
   var strHTML = imgs
     .map((img) => {
       return `<div class"grid-item">
-                    <img src="${img.url}" class="grid-img" onclick="renderMeme(${img.id})">
+                    <img src="${img.url}" class="grid-item" onclick="renderMeme(${img.id})">
                 </div>`;
     })
     .join('');
@@ -49,12 +53,12 @@ function onTyping(text) {
   drawLines();
 }
 
-function drawLines(){
-    updateGlobals();
-    renderImg();
-    gStorageMeme.lines.forEach((line, idx) => {
-        drawText(line, idx);
-      });
+function drawLines() {
+  updateGlobals();
+  renderImg();
+  gStorageMeme.lines.forEach((line, idx) => {
+    drawText(line, idx);
+  });
 }
 
 function drawText(line, idx) {
@@ -98,27 +102,14 @@ function onDownloadCanvas(elLink) {
   elLink.download = 'my-img.jpg';
 }
 
-// function onClearCanvas() {
-//   var clear = confirm('Are you sure?');
-//   if (clear) {
-//     gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height);
-//     renderImg();
-//     document.querySelector('.text-input').value = '';
-//     var imgId = gStorageMeme.selectedImgId;
-//     deleteMeme(imgId, gElCanvas);
-//     updateGlobals();
-//   }
-// }
-
-function onClearLine(){
-    var clear = confirm('Are you sure?');
-      if (clear) {
-        clearLine();
-        updateGlobals();
-        document.querySelector('.text-input').value = '';
-        drawLines();
-      }
-
+function onClearLine() {
+  var clear = confirm('Are you sure?');
+  if (clear) {
+    clearLine();
+    updateGlobals();
+    document.querySelector('.text-input').value = '';
+    drawLines();
+  }
 }
 function onSaveMeme() {
   saveMeme();
@@ -128,22 +119,30 @@ function onSaveMeme() {
   renderGallary();
 }
 
-function onLineUp(){
-    moveLineUp(gElCanvas);
-    updateGlobals();
-    drawLines();
+function onLineUp() {
+  moveLineUp(gElCanvas);
+  updateGlobals();
+  drawLines();
 }
-function onLineDown(){
-    moveLineDown(gElCanvas);
-    updateGlobals();
-    drawLines();
+function onLineDown() {
+  moveLineDown(gElCanvas);
+  updateGlobals();
+  drawLines();
 }
 
-function onChangeFocus(){
-    changeFocus();
-    updateGlobals();
-    document.querySelector('.text-input').value = gStorageMeme.lines[gCurrLineIdx].txt;
-    drawLines();
+function onChangeFocus() {
+  changeFocus();
+  updateGlobals();
+  document.querySelector('.text-input').value =
+    gStorageMeme.lines[gCurrLineIdx].txt;
+  drawLines();
+}
+
+function resizeCanvas() {
+  const elContainer = document.querySelector('.canvas-container');
+  gElCanvas.width = elContainer.offsetWidth;
+//   gElCanvas.height = elContainer.cilentHeight;
+  gElCanvas.height = elContainer.offsetHeight;
 }
 
 // function canvasClicked(ev) {

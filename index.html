@@ -12,7 +12,7 @@
 
 <body class="gallary" onload="init()">
     <header class="nav-container flex align-center space-between">
-        <div class="logo">MemeGen.</div>
+        <div class="logo">MemeGen<span>.</span></div>
         <nav class="nav-content">
             <ul class="nav-list clean-list flex">
                 <li>
@@ -42,31 +42,31 @@
             <div class="control-panel flex">
                 <input id="input-0" class="text-input" type="text" oninput="onTyping(this.value)">
                 <div class="editor-btns flex align-center">
-                    <div class="btns-first-line control-line-container  flex justify-center align-center">
-                        <img src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" class="editor-btn-img"
-                            onclick="onChangeFocus()">
-                        <button class="editor-btn-img" onclick="onAddTextLine()"><i
+                    <div class="btns-first-line control-line-container flex justify-center align-center">
+                        <button class="editor-btn-icon" onclick="onChangeFocus()"><i
+                                class="fas fa-exchange-alt fa-2x fa-rotate-90"></i></button>
+                        <button class="editor-btn-icon" onclick="onAddTextLine()"><i
                                 class="fas fa-plus fa-2x"></i></button>
-                        <button class="editor-btn-img" onclick="onClearLine()"><i
+                        <button class="editor-btn-icon" onclick="onClearLine()"><i
                                 class="fas fa-trash fa-2x"></i></button>
                     </div>
                     <div class="btns-second-line control-line-container flex">
-                        <button class="editor-btn-img" onclick="onLineUp()"><i
+                        <button class="editor-btn-icon" onclick="onLineUp()"><i
                                 class="fas fa-arrow-up fa-2x"></i></button>
-                        <button class="editor-btn-img" onclick="onLineDown()"><i
+                        <button class="editor-btn-icon" onclick="onLineDown()"><i
                                 class="fas fa-arrow-down fa-2x"></i></button>
-                        <img name="increase" src="ICONS/increase font - icon.png" class="editor-btn-img"
+                        <img name="increase" src="ICONS/increase font - icon.png" class="editor-btn-icon"
                             onclick="onChangeFont(this.name)"></button>
-                        <img name="decrease" src="ICONS/decrease font - icon.png" class="editor-btn-img"
+                        <img name="decrease" src="ICONS/decrease font - icon.png" class="editor-btn-icon"
                             onclick="onChangeFont(this.name)"></button>
-                        <img name="left" src="ICONS/align-to-left.png" class="editor-btn-img"
-                            onclick="onChangeAlignment(this.name)"></button>
-                        <img name="center" src="ICONS/center-text-alignment.png" class="editor-btn-img"
-                            onclick="onChangeAlignment(this.name)"></button>
-                        <img name="right" src="ICONS/align-to-right.png" class="editor-btn-img"
-                            onclick="onChangeAlignment(this.name)"></button>
-                        <img src="ICONS/text stroke.png" class="editor-btn-img">
-                        <img src="ICONS/paint-board-and-brush.png" class="editor-btn-img">
+                        <button name="left" class="editor-btn-icon" onclick="onChangeAlignment(this.name)"><i
+                                class="fas fa-align-left fa-2x"></i></button>
+                        <button name="center" class="editor-btn-icon" onclick="onChangeAlignment(this.name)"><i
+                                class="fas fa-align-center fa-2x"></i></button>
+                        <button name="right" class="editor-btn-icon" onclick="onChangeAlignment(this.name)"><i
+                                class="fas fa-align-right fa-2x"></i></button>
+                        <img src="ICONS/text stroke.png" class="editor-btn-icon">
+                        <img src="ICONS/paint-board-and-brush.png" class="editor-btn-icon">
                     </div>
                     <div class="btns-third-line control-line-container  flex">
                         <a class="meme-actions" href="#" onclick="onDownloadCanvas(this)">Download</a>
@@ -89,7 +89,7 @@
 
     </section>
     <footer class="main-footer flex align-center justify-center">
-        <p class="logo">MemeGen.</p>
+        <p class="logo">MemeGen<span>.</span></p>
         <p>all rights reserved 2021</p>
     </footer>
     <script src="js/storage-service.js"></script>

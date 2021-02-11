@@ -20,6 +20,15 @@
 }
 
 /* General */
+
+html {
+  font-family: 'Signika-Light';
+}
+
+body {
+  background-color: #e7e6e1;
+  margin: 0;
+}
 button {
   border: none;
   cursor: pointer;
@@ -30,6 +39,7 @@ a {
   color: black;
   cursor: pointer;
 }
+
 /* Layout */
 
 .grid-container {
@@ -41,29 +51,7 @@ a {
 
 /* Components */
 
-html {
-  font-family: 'Signika-Light';
-}
-
-body {
-  background-color: #f7f6e7;
-  margin: 0;
-}
-
-.image-gallary {
-  visibility: hidden;
-}
-
-.grid-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-body.gallary .image-gallary {
-  visibility: visible;
-}
+/* Header */
 
 .nav-container {
   height: 80px;
@@ -76,11 +64,34 @@ body.gallary .image-gallary {
   font-family: 'Roboto-Black';
   font-size: 1.75rem;
   letter-spacing: 1px;
+  color: #e7e6e1;
+  letter-spacing: 3px;
+}
+
+.logo span {
+  color: white;
 }
 
 .nav-list a {
   padding-inline-end: 10px;
   font-size: 1.25rem;
+}
+
+/* Main */
+
+.image-gallary {
+  visibility: hidden;
+}
+
+.grid-item {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+body.gallary .image-gallary {
+  visibility: visible;
 }
 
 .meme-editor-panel {
@@ -101,6 +112,10 @@ body.meme-editor .about-container {
   flex-basis: 50%;
   align-items: center;
   padding: 10px;
+  background-color: #f7f6e7;
+  border-radius: 5px;
+  height: 475px;
+  padding: 2%;
 }
 
 .control-panel .text-input {
@@ -109,15 +124,19 @@ body.meme-editor .about-container {
   border: none;
   margin-block-end: 10px;
   font-family: 'Signika-Light';
-  width: 100%;
+  width: 80%;
+  font-size: 1.25rem;
 }
 
 .canvas-container {
-  margin: 10px;
+  height: 60vh;
+  flex-basis: 50%;
+  text-align: center;
+  margin-inline-end: 10px;
 }
 
 .editor-btns {
-  width: 50%;
+  width: 80%;
   flex-direction: column;
 }
 
@@ -132,7 +151,7 @@ body.meme-editor .about-container {
   border-radius: 5px;
 }
 
-.editor-btn-img {
+.editor-btn-icon {
   width: 38px;
   height: 35px;
   border-radius: 5px;
@@ -143,18 +162,25 @@ body.meme-editor .about-container {
   margin-block-end: 6px;
 }
 
+.fa-trash {
+  color: rgb(148, 44, 44);
+}
+
+.fa-plus {
+  color: rgb(3, 83, 83);
+}
+
+.fa-exchange-alt {
+  color: #f2a154;
+}
+
 .meme-actions {
   border-radius: 5px;
   background-color: white;
   padding: 10px;
   margin: 5px;
 }
-
-.main-footer {
-  height: 200px;
-  background-color: #314e52;
-  flex-direction: column;
-}
+/* About */
 
 .about-container {
   height: 400px;
@@ -182,6 +208,35 @@ body.meme-editor .about-container {
   display: none;
 }
 
+/* footer */
+
+.main-footer {
+  height: 200px;
+  background-color: #314e52;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 900px) {
+  .meme-editor-panel {
+    flex-direction: column;
+    align-items: center;
+  }
+  .control-panel {
+    margin-block-start: 10px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .canvas-container {
+    width: 80vw;
+    height: 40vh;
+  }
+}
+@media screen and (max-width: 400px) {
+    .canvas-container {
+      height: 20vh;
+    }
+  }
 /* HELPERS */
 
 /* ***fles-helpers*** */

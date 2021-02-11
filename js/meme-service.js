@@ -168,7 +168,6 @@ function createMeme(imgId, canvas) {
   var img = findImg(imgId);
 
   gMeme = {
-    selectedImgId: imgId,
     selectedImgUrl: img.url,
     selectedLineIdx: 0,
     lines: [
@@ -190,11 +189,16 @@ function createMeme(imgId, canvas) {
 
 function createNewLine(canvas) {
   gLineIdx++;
+  if (gMeme.lines.length === 1) {
+    var y = canvas.height - 20;
+  } else {
+    var y = (canvas.height / 2);
+  }
 
   var line = {
     location: {
       x: canvas.width / 2,
-      y: 40 * (gLineIdx + 1),
+      y,
     },
     id: gLineIdx,
     txt: '',
@@ -203,7 +207,7 @@ function createNewLine(canvas) {
     color: 'black',
   };
   gMeme.selectedLineIdx = gLineIdx;
-//   gLineIdx += 1;
+  //   gLineIdx += 1;
   gMeme.lines.push(line);
   saveToStorage(KEY, gMeme);
 }
@@ -237,35 +241,28 @@ function updateFont(action) {
 
 function updateAlignment(action) {
   if (action === 'left') {
-    gMeme.lines[gLineIdx].align = 'left';
+    gMeme.lines[gLineIdx].align = 'right';
   } else if (action === 'center') {
     gMeme.lines[gLineIdx].align = 'center';
   } else {
-    gMeme.lines[gLineIdx].align = 'right';
+    gMeme.lines[gLineIdx].align = 'left';
   }
   saveToStorage(KEY, gMeme);
 }
 
-// function deleteMeme(imgId, canvas) {
-//   gLineIdx = 0;
-//   createMeme(imgId, canvas);
-// }
-
-function clearLine(){
-    if (gMeme.lines.length ===1){
-        console.log('hiiii');
-        gMeme.lines[gLineIdx].txt ='';
+function clearLine() {
+  if (gMeme.lines.length === 1) {
+    console.log('hiiii');
+    gMeme.lines[gLineIdx].txt = '';
+  } else {
+    gMeme.lines.splice(gLineIdx, 1);
+    if (gLineIdx != 0) {
+      gLineIdx--;
+      gMeme.selectedLineIdx = gLineIdx;
     }
-    else{
-        gMeme.lines.splice(gLineIdx,1);
-        if (gLineIdx !=0){
-            gLineIdx --
-            gMeme.selectedLineIdx = gLineIdx;
-        }
-    }
-    saveToStorage(KEY, gMeme);
+  }
+  saveToStorage(KEY, gMeme);
 }
-
 
 function saveMeme() {
   gMemes.push(gMeme);
@@ -290,14 +287,13 @@ function moveLineDown(canvas) {
 
 function changeFocus() {
   if (gMeme.lines.length === 1) return;
-  else if(gMeme.lines.length-1 === gLineIdx){
-      gLineIdx =0;
-      gMeme.selectedLineIdx = 0;
-      saveToStorage(KEY, gMeme);
-  }
-  else{
-    gLineIdx ++;
-    gMeme.selectedLineIdx ++;
+  else if (gMeme.lines.length - 1 === gLineIdx) {
+    gLineIdx = 0;
+    gMeme.selectedLineIdx = 0;
+    saveToStorage(KEY, gMeme);
+  } else {
+    gLineIdx++;
+    gMeme.selectedLineIdx++;
     saveToStorage(KEY, gMeme);
   }
 }
