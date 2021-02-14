@@ -169,7 +169,7 @@ function createMeme(imgId, canvas) {
   var img = findImg(imgId);
 
   gMeme = {
-    selectedImgUrl: img.url,
+    url: img.url,
     selectedLineIdx: 0,
     lines: [
       {
@@ -208,7 +208,6 @@ function createNewLine(canvas) {
     color: 'black',
   };
   gMeme.selectedLineIdx = gLineIdx;
-  //   gLineIdx += 1;
   gMeme.lines.push(line);
   saveToStorage(KEY, gMeme);
 }
@@ -240,7 +239,7 @@ function updateFont(action) {
   saveToStorage(KEY, gMeme);
 }
 
-function updateAlignment(action) {
+function updateAlignment(action, canvas) {
   if (action === 'left') {
     gMeme.lines[gLineIdx].align = 'right';
   } else if (action === 'center') {
@@ -265,12 +264,17 @@ function clearLine() {
   saveToStorage(KEY, gMeme);
 }
 
-function saveMeme() {
-  gMemes.push(gMeme);
+function saveMeme(canvas) {
+  var memeToImg = {
+    id: gId,
+    url: canvas.toDataURL()
+  }
+  gMemes.push(memeToImg);
+  gId ++;
   saveToStorage('memesDB', gMemes);
 }
 
-function moveLineUp(canvas) {
+function moveLineUp() {
   var lineHeight = gMeme.lines[gLineIdx].location.y;
   if (lineHeight < 40) return;
 

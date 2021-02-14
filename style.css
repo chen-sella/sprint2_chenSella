@@ -29,6 +29,11 @@ body {
   background-color: #e7e6e1;
   margin: 0;
 }
+
+.main{
+  flex: 1;
+}
+
 button {
   border: none;
   cursor: pointer;
@@ -121,6 +126,7 @@ a {
 
 .image-gallary {
   display: none;
+  min-height: 374px;
 }
 
 .grid-item {
@@ -136,8 +142,10 @@ body.gallary .image-gallary {
 
 .meme-editor-panel {
   display: none;
-  align-items: flex-start;
-  margin: 5% 10%;
+  align-items: center;
+  margin: 5%;
+  justify-content: center;
+  min-height: 650px;
 }
 
 body.meme-editor .meme-editor-panel {
@@ -150,19 +158,20 @@ body.meme-editor .search-bar {
   display: none;
 }
 
+body.meme-history .search-bar {
+  display: none;
+}
+
 body.meme-editor .social-buttons {
     display: none;
   }
 
 .control-panel {
   flex-direction: column;
-  flex-basis: 50%;
   align-items: center;
-  padding: 10px;
   background-color: #f7f6e7;
   border-radius: 5px;
-  height: 475px;
-  padding: 2%;
+  height: 400px;
 }
 
 .control-panel .text-input {
@@ -176,10 +185,8 @@ body.meme-editor .social-buttons {
 }
 
 .canvas-container {
-  height: 60vh;
-  flex-basis: 50%;
   text-align: center;
-  margin-inline-end: 10px;
+  width: 500px;
 }
 
 .editor-btns {
@@ -230,7 +237,6 @@ body.meme-editor .social-buttons {
 /* About */
 
 .about-container {
-  height: 400px;
   width: 100%;
   background-color: white;
 }
@@ -258,8 +264,8 @@ body.meme-editor .social-buttons {
 
 .social-buttons {
   margin: 0;
-  padding-block-start: 10px;
   background-color: white;
+  padding: 0;
 }
 .social-item {
   width: 38px;
@@ -290,20 +296,22 @@ body.meme-editor .social-buttons {
   flex-direction: column;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 910px) {
   .meme-editor-panel {
     flex-direction: column;
     align-items: center;
   }
   .control-panel {
     margin-block-start: 10px;
+    width: 400px;
   }
+  
+
 }
 
 @media screen and (max-width: 650px) {
   .about-container {
     flex-direction: column;
-    height: 550px;
   }
 
   .menu-btn {
@@ -332,7 +340,6 @@ body.meme-editor .social-buttons {
     width: 200px;
     transform: translateX(100%);
     background-color: rgba(41 41 41 / 90%);
-
     transition: transform 0.8s, box-shadow 0.8s;
   }
 
@@ -361,16 +368,16 @@ body.meme-editor .social-buttons {
   }
 }
 
-@media screen and (max-width: 550px) {
-  .canvas-container {
-    width: 80vw;
-    height: 40vh;
+
+@media screen and (max-width: 450px) {
+  canvas {
+    width: 300px;
+    height: 300px;
   }
-}
-@media screen and (max-width: 400px) {
-  .canvas-container {
-    width: 60vw;
-    height: 20vh;
+
+  .control-panel{
+    height: none;
+    width: 300px;
   }
 }
 /* HELPERS */

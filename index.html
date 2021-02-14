@@ -17,10 +17,10 @@
         <nav class="nav-content">
             <ul class="nav-list clean-list flex">
                 <li>
-                    <a>Gallary</a>
+                    <a onclick="showMemesGallary()">Gallary</a>
                 </li>
                 <li>
-                    <a>Memes</a>
+                    <a onclick="showMemesHistory()">Memes</a>
                 </li>
                 <li>
                     <a href="#about">About</a>
@@ -35,17 +35,17 @@
         <input type="file" name="image" onchange="onImgInput(event)">
     </section>
     <main>
-        <section class="image-gallary">
+        <section class="main image-gallary">
             <div class="grid-container">
             </div>
         </section>
-        <div class="meme-editor-panel">
+        <div class="main meme-editor-panel">
             <div class="canvas-container">
-                <canvas id="meme-canvas" width="480" height="473" onclick="canvasClicked(event)">
+                <canvas id="meme-canvas" height="400" width="400" onclick="canvasClicked(event)">
                 </canvas>
             </div>
-            <div class="control-panel flex">
-                <input id="input-0" class="text-input" type="text" oninput="onTyping(this.value)">
+            <div class="control-panel flex justify-center">
+                <input id="input-0" class="text-input" placeholder="Insert Text" type="text" oninput="onTyping(this.value)">
                 <div class="editor-btns flex align-center">
                     <div class="btns-first-line control-line-container flex justify-center align-center">
                         <button class="editor-btn-icon" onclick="onChangeFocus()"><i
@@ -70,7 +70,10 @@
                                 class="fas fa-align-center fa-2x"></i></button>
                         <button name="right" class="editor-btn-icon" onclick="onChangeAlignment(this.name)"><i
                                 class="fas fa-align-right fa-2x"></i></button>
-                        <img src="ICONS/text stroke.png" class="editor-btn-icon">
+                        <label>
+                            <img for="stroke-color" src="ICONS/text stroke.png" class="editor-btn-icon"/>
+                            <input hidden type="color" id="stroke-color" name="head"value="#e66465">
+                        </label>
                         <img src="ICONS/paint-board-and-brush.png" class="editor-btn-icon">
                     </div>
                     <div class="btns-third-line control-line-container  flex">
@@ -91,25 +94,25 @@
                 challenges and
                 exploring different fields. I live from one adventure to another, love to travel and playing the piano.
             </p>
+            <section class="socials">
+                <ul class="social-buttons clean-list flex">
+                    <li class="social-item">
+                        <a href="https://www.instagram.com/chen.sella/?hl=en" target="_blank">
+                            <i class="fab fa-instagram-square fa-2x"></i>                </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="https://www.facebook.com/chen.sella/" target="_blank">
+                            <i class="fab fa-facebook-square fa-2x"></i>
+                        </a>
+                    </li>
+                    <li class="social-item">
+                        <a href="https://www.linkedin.com/in/chen-sella-855b28168/" target="_blank">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
         </div>
-    </section>
-    <section class="socials">
-        <ul class="social-buttons clean-list flex justify-center">
-            <li class="social-item">
-                <a href="https://www.instagram.com/chen.sella/?hl=en" target="_blank">
-                    <i class="fab fa-instagram-square fa-2x"></i>                </a>
-            </li>
-            <li class="social-item">
-                <a href="https://www.facebook.com/chen.sella/" target="_blank">
-                    <i class="fab fa-facebook-square fa-2x"></i>
-                </a>
-            </li>
-            <li class="social-item">
-                <a href="https://www.linkedin.com/in/chen-sella-855b28168/" target="_blank">
-                    <i class="fab fa-linkedin fa-2x"></i>
-                </a>
-            </li>
-        </ul>
     </section>
     <section class="saved-memes">
 
